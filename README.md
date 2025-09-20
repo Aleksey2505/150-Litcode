@@ -2288,12 +2288,12 @@ flowchart TD
     A["START"] --> B["Ввод: digits строка цифр"]
     B --> C{"digits пустая?"}
     C -->|Да| D["Верни пустой список"]
-    C -->|Нет| E["phone = маппинг цифр на буквы<br/>result = []"]
+    C -->|Нет| E["phone = маппинг цифр на буквы<br>result = []"]
     E --> F["backtrack index=0, path=''"]
     F --> G{"index == len digits?"}
-    G -->|Да| H["result.append path<br/>Добавить готовую комбинацию"]
+    G -->|Да| H["result.append path<br>Добавить готовую комбинацию"]
     G -->|Нет| I["Для letter в phone[digits[index]]"]
-    I --> J["backtrack index+1, path+letter<br/>Рекурсивный вызов"]
+    I --> J["backtrack index+1, path+letter<br>Рекурсивный вызов"]
     J --> K{"Есть еще буквы?"}
     K -->|Да| I
     K -->|Нет| L["Возврат из рекурсии"]
@@ -9649,6 +9649,8 @@ flowchart TD
     H --> C
     I --> C
     C --> J["res+=sign*num"]
+    J --> K["Верни res"]
+    K --> L["END"]
 
 ```
 
