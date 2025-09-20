@@ -9637,20 +9637,20 @@ class Solution:
 ```mermaid
 flowchart TD
     A["START"] --> B["stack,sign=1,num=0,res=0"]
-    B --> C{"есть символы?"}
-    C -->|Да| D{"цифра?"}
-    C -->|Нет| K["Верни res"]
+    B --> C["цикл по символам"]
+    C --> D{"цифра?"}
     D -->|Да| E["num=num*10+digit"]
     D -->|Нет| F{"оператор?"}
-    E --> C
     F -->|+/-| G["res+=sign*num,sign обновить"]
-    F -->|(| H["stack.push(res,sign),res=0,sign=1"]
-    F -->|)| I["res+=sign*num,num=0,res=stack.pop()*sign+res"]
+    F -->|открывающая скобка| H["stack.push res,sign,res=0,sign=1"]
+    F -->|закрывающая скобка| I["res+=sign*num,num=0,res=stack.pop*sign+res"]
+    E --> C
     G --> C
     H --> C
     I --> C
+    C --> J["res+=sign*num"]
+    J --> K["Верни res"]
     K --> L["END"]
-```
 
 ---
 
